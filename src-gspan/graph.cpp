@@ -87,7 +87,7 @@ void Graph::read (const mxArray* graph)
 		return;
 	}
 
-	uint32_T* nmat = (uint32_T*) mxGetPr (nodelabels);
+	uint32_T* nmat = (uint32_T*) mxGetData (nodelabels);
 	assert (nmat != NULL);
 	unsigned int nodes = mxGetM (nodelabels);
 	this->resize (nodes);
@@ -102,7 +102,7 @@ void Graph::read (const mxArray* graph)
 	 */
 	unsigned int edgecount = mxGetM (edges);
 	if (edgecount > 0) {
-		uint32_T* emat = (uint32_T*) mxGetPr (edges);
+		uint32_T* emat = (uint32_T*) mxGetData (edges);
 #ifdef	DEBUG
 		mexPrintf ("edges M, N: %d, %d\n", mxGetM (edges), mxGetN (edges));
 #endif
@@ -179,7 +179,7 @@ mxArray* Graph::writemex (void)
 	 */
 	mxArray* nodelabels = mxCreateNumericMatrix (size (), 1, mxUINT32_CLASS, 0);
 	assert (nodelabels != NULL);
-	uint32_T* nodelabels_P = (uint32_T*) mxGetPr (nodelabels);
+	uint32_T* nodelabels_P = (uint32_T*) mxGetData (nodelabels);
 	assert (nodelabels_P != NULL);
 
 	unsigned int edgecount = 0;
@@ -198,7 +198,7 @@ mxArray* Graph::writemex (void)
 	 */
 	mxArray* edges = mxCreateNumericMatrix (edgecount, 3, mxUINT32_CLASS, 0);
 	assert (edges != NULL);
-	uint32_T* edges_P = (uint32_T*) mxGetPr (edges);
+	uint32_T* edges_P = (uint32_T*) mxGetData (edges);
 	//assert (edges_P != NULL);
 
 	unsigned int eidx = 0;

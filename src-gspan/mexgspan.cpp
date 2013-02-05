@@ -94,7 +94,7 @@ mexFunction (int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
 
 		return;
 	}
-	double* size_req = (double *) mxGetPr (prhs[2]);
+	double* size_req = (double *) mxGetData (prhs[2]);
 	unsigned int maxpat_min = (unsigned int) size_req[0];
 	unsigned int maxpat_max = (unsigned int) size_req[1];
 	unsigned int directed = (unsigned int) mxGetScalar (prhs[3]);
@@ -117,8 +117,8 @@ mexFunction (int nlhs, mxArray* plhs[], int nrhs, const mxArray* prhs[])
 		}
 		unsigned int boostN = (unsigned int) mxGetScalar (prhs[7]);
 
-		double* boostYptr = (double *) mxGetPr (prhs[4]);
-		double* boostWeightsPtr = (double *) mxGetPr (prhs[5]);
+		double* boostYptr = (double *) mxGetData (prhs[4]);
+		double* boostWeightsPtr = (double *) mxGetData (prhs[5]);
 		unsigned int boostYlen = mxGetM (prhs[4]);
 		std::vector<double> boostY;
 		std::vector<double> boostWeights;

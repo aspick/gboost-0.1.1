@@ -55,7 +55,7 @@ void gSpan::mexAppendGraph (Graph* g, unsigned int ID, double par,
 void gSpan::read (const mxArray* graphs)
 {
 	unsigned int count = mxGetN (graphs);
-	const mxArray** garr = (const mxArray**) mxGetPr (graphs);
+	const mxArray** garr = (const mxArray**) mxGetData (graphs);
 
 	for (unsigned int n = 0 ; n < count ; ++n) {
 		const mxArray* gcur = garr[n];
@@ -697,7 +697,7 @@ void gSpan::run_graphs (const mxArray* graphs, int nlhs, mxArray* plhs[],
 	 */
 	plhs[0] = mxCreateCellMatrix (1, count);
 	assert (plhs[0] != NULL);
-	//graphsP = (mxArray**) mxGetPr (plhs[0]);
+	//graphsP = (mxArray**) mxGetData (plhs[0]);
 	mxArray* graphsP = plhs[0];
 
 	uint32_T* countP = NULL;
@@ -706,15 +706,15 @@ void gSpan::run_graphs (const mxArray* graphs, int nlhs, mxArray* plhs[],
 	if (nlhs >= 2 && boost == false) {
 		plhs[1] = mxCreateNumericMatrix (1, count, mxUINT32_CLASS, 0);
 		assert (plhs[1] != NULL);
-		countP = (uint32_T *) mxGetPr (plhs[1]);
+		countP = (uint32_T *) mxGetData (plhs[1]);
 		assert (countP != NULL);
 	} else if (nlhs >= 2 && boost) {
 		plhs[1] = mxCreateNumericMatrix (1, count, mxDOUBLE_CLASS, 0);
-		subgY = (double *) mxGetPr (plhs[1]);
+		subgY = (double *) mxGetData (plhs[1]);
 	}
 	if (nlhs >= 3) {
 		plhs[2] = mxCreateNumericMatrix (gcount, count, mxDOUBLE_CLASS, 0);
-		countsGY = (double*) mxGetPr (plhs[2]);
+		countsGY = (double*) mxGetData (plhs[2]);
 	}
 
 	unsigned int idx = 0;
