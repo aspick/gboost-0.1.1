@@ -1,0 +1,5 @@
+
+# 1. Set the Matlab installation directory here
+#
+MATLABROOT=/opt/matlab
+
