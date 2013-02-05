@@ -52,7 +52,7 @@ i) GNU General Public License
 
 Copyright (C) 2006 Sebastian Nowozin,
 Copyright (C) 2004 Taku Kudo,
-Copyright (C) 2001 Dipartimento di Informatica e Sistemistica, Universit‡
+Copyright (C) 2001 Dipartimento di Informatica e Sistemistica, Universit√†
     degli studi di Napoli ``Federico II'',
 All rights reserved.
 
@@ -88,7 +88,7 @@ the specific language governing rights and limitations under the License.
      The Initial Developer of the Original Code is Sebastian Nowozin.
      Portions created by Taku Kudo are Copyright (C) 2007.
      Portions created by Dipartimento di Informatica e Sistemistica,
-        Universit‡ degli studi di Napoli ``Federico II'' are
+        Universit√† degli studi di Napoli ``Federico II'' are
         Copyright (C) 2001.
      All Rights Reserved.
 
